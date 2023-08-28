@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: henrik <henrik@student.42lyon.fr>          +#+  +:+       +#+        */
+/*   By: hsilverb <hsilverb@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/14 16:52:42 by henrik            #+#    #+#             */
-/*   Updated: 2023/08/28 12:08:09 by henrik           ###   ########lyon.fr   */
+/*   Updated: 2023/08/28 20:27:02 by hsilverb         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,21 +27,21 @@ void	ft_print_message(t_philo *philo, char *action)
 	pthread_mutex_unlock(philo->message);
 }
 
+void	ft_check_death(t_philo *philo)
+{
+	
+
+}
+
 void	ft_sleep(t_philo *philo)
 {
-	int	wake_time;
-	int	death_time;
-
-	wake_time = (ft_get_timer() - philo->last_meal) + philo->time_to_sleep;
-	death_time = (ft_get_timer() - philo->last_meal) + philo->time_to_die;
-	//check_death(philo);
-	if (wake_time >= death_time)
-		usleep((philo->time_to_die * 1000));
-	else
-		usleep((philo->time_to_sleep * 1000));
-	//check_death(philo);
 	ft_print_message(philo, "is sleeping");
-	ft_print_message(philo, "is thinking");
+	usleep(philo->time_to_sleep * 1000);
+	if (philo->time_to_eat > philo->time_to_sleep)
+	{
+		ft_print_message(philo, "is thinking");
+		usleep((philo->time_to_eat - philo->time_to_sleep) * 1000);
+	}
 }
 
 void	ft_eat(t_philo *philo)
@@ -53,7 +53,7 @@ void	ft_eat(t_philo *philo)
 	ft_print_message(philo, "has taken a fork");
 	ft_print_message(philo, "is eating");
 	philo->last_meal = ft_get_timer();
-	usleep(philo->time_to_eat);
+	usleep(philo->time_to_eat * 1000);
 	philo->nb_eat += 1;
 	pthread_mutex_unlock(philo->right_fork);
 	pthread_mutex_unlock(philo->left_fork);
@@ -65,7 +65,7 @@ void	*routine(void *arg)
 
 	philo = (t_philo *)arg;
 	if (philo->index % 2 == 1)
-		usleep((philo->time_to_eat / 2));
+		usleep(((philo->time_to_eat / 2) * 1000));
 	//just to cut the while loop
 	philo->max_eat = 2;
 	while (1)
