@@ -1,0 +1,49 @@
+#ifndef PHILO_H
+# define PHILO_H
+
+# include <pthread.h>
+# include <stdio.h>
+# include <stdlib.h>
+# include <sys/time.h>
+# include <unistd.h>
+
+typedef struct s_philo
+{
+	pthread_mutex_t	*right_fork;
+	pthread_mutex_t	*left_fork;
+	pthread_mutex_t	*message;
+	unsigned long	start;
+	int				index;
+	int				time_to_die;
+	int				time_to_eat;
+	int				time_to_sleep;
+	int				nb_eat;
+	int				max_eat;
+	unsigned long	last_meal;
+}				t_philo;
+
+typedef struct s_data
+{
+	pthread_mutex_t	*forks;
+	pthread_mutex_t	message;
+	pthread_t		*th;
+	unsigned long	start;
+	int				nb_philo;
+	int				time_to_die;
+	int				time_to_eat;
+	int				time_to_sleep;
+	int				max_eat;
+	t_philo			*philo;
+}				t_data;
+
+void	ft_parsing_args(int argc);
+void	ft_init_data(int argc, char **argv, t_data *data);
+
+void	ft_error(char *str);
+void	ft_init_mutex(t_data *data);
+
+void	ft_destroy_thread(t_data *data);
+void	ft_join_thread(t_data *data);
+void	ft_free_data(t_data *data);
+
+#endif
