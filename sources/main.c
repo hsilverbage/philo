@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: henrik <henrik@student.42lyon.fr>          +#+  +:+       +#+        */
+/*   By: hsilverb <hsilverb@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/14 16:52:42 by henrik            #+#    #+#             */
-/*   Updated: 2023/08/31 17:08:39 by henrik           ###   ########lyon.fr   */
+/*   Updated: 2023/08/31 17:12:10 by hsilverb         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,11 @@ void	ft_print_message(t_philo *philo, char *action)
 {
 	pthread_mutex_lock(philo->message);
 	if (*(philo->death) < 2)
+	{
 		printf("%lu\t%d %s\n", (ft_get_timer() - philo->start), philo->index, action);
+		if (ft_strcmp(action, "died") == 0)
+			philo->death += 1;
+	}
 	pthread_mutex_unlock(philo->message);
 }
 
