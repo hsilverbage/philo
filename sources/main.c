@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hsilverb <hsilverb@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: henrik <henrik@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/14 16:52:42 by henrik            #+#    #+#             */
-/*   Updated: 2023/08/28 20:27:02 by hsilverb         ###   ########lyon.fr   */
+/*   Updated: 2023/08/31 15:30:09 by henrik           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	ft_print_message(t_philo *philo, char *action)
 
 void	ft_check_death(t_philo *philo)
 {
-	
+
 
 }
 
@@ -95,13 +95,11 @@ void	ft_init_forks(t_data *data, int i)
 	{
 		data->philo[i].left_fork = &data->forks[i];
 		data->philo[i].right_fork = &data->forks[(i + 1) % data->nb_philo];
-		//printf("ID PHILO IS EVEN\n i is worth %d\n ((i + 1) modulo nb_philo) = %d\n\n\n", i, ((i + 1) % data->nb_philo) );
 	}
 	else
 	{
 		data->philo[i].left_fork = &data->forks[i];
 		data->philo[i].right_fork = &data->forks[(i + 1)% data->nb_philo];
-		//printf("ID PHILO IS ODD\n i is worth %d\n ((i + 1) modulo nb_philo) = %d\n\n\n", i, ((i + 1) % data->nb_philo) );
 	}
 }
 
