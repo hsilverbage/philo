@@ -13,13 +13,14 @@ typedef struct s_philo
 	pthread_mutex_t	*left_fork;
 	pthread_mutex_t	*message;
 	unsigned long	start;
+	unsigned long	time_to_die;
+	unsigned long	time_to_eat;
+	unsigned long	time_to_sleep;
+	unsigned long	last_meal;
 	int				index;
-	int				time_to_die;
-	int				time_to_eat;
-	int				time_to_sleep;
 	int				nb_eat;
 	int				max_eat;
-	unsigned long	last_meal;
+	int			*death;
 }				t_philo;
 
 typedef struct s_data
@@ -27,12 +28,12 @@ typedef struct s_data
 	pthread_mutex_t	*forks;
 	pthread_mutex_t	message;
 	pthread_t		*th;
-	unsigned long	start;
 	int				nb_philo;
-	int				time_to_die;
-	int				time_to_eat;
-	int				time_to_sleep;
+	unsigned long	time_to_die;
+	unsigned long	time_to_eat;
+	unsigned long	time_to_sleep;
 	int				max_eat;
+	int				death;
 	t_philo			*philo;
 }				t_data;
 

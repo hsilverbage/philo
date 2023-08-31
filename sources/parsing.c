@@ -6,7 +6,7 @@
 /*   By: henrik <henrik@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/14 17:48:09 by henrik            #+#    #+#             */
-/*   Updated: 2023/08/28 11:11:21 by henrik           ###   ########lyon.fr   */
+/*   Updated: 2023/08/31 16:29:19 by henrik           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ void	ft_one_philo(t_data *data)
 {
 	printf("0\t1 has taken a fork\n");
 	usleep(data->time_to_die);
-	printf("%d\t1 died\n", data->time_to_die);
+	printf("%lu\t1 died\n", data->time_to_die);
 	exit (EXIT_SUCCESS);
 }
 
@@ -76,6 +76,7 @@ void	ft_init_data(int argc, char **argv, t_data *data)
 		ft_error("Invalid argument\n");
 	if (data->nb_philo == 1)
 		ft_one_philo(data);
+	data->death = 0;
 	data->forks = malloc(sizeof(pthread_mutex_t) * data->nb_philo);
 	data->philo = malloc(sizeof(t_philo) * data->nb_philo);
 	data->th = malloc(sizeof(pthread_t) * data->nb_philo);
