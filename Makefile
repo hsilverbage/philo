@@ -3,7 +3,7 @@
 NAME = philo
 
 CC = cc -g3
-CFLAGS = -pthread #-fsanitize=address #-Wall -Wextra -Werror
+CFLAGS = -pthread -Wall -Wextra -Werror -fsanitize=thread
 INCLUDES = -I ./includes
 
 # COLORS

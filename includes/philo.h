@@ -29,9 +29,9 @@ typedef struct s_data
 	pthread_mutex_t	message;
 	pthread_t		*th;
 	int				nb_philo;
-	unsigned long	time_to_die;
-	unsigned long	time_to_eat;
-	unsigned long	time_to_sleep;
+	int				time_to_die;
+	int				time_to_eat;
+	int				time_to_sleep;
 	int				max_eat;
 	int				death;
 	t_philo			*philo;

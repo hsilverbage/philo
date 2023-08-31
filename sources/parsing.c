@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: henrik <henrik@student.42lyon.fr>          +#+  +:+       +#+        */
+/*   By: hsilverb <hsilverb@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/14 17:48:09 by henrik            #+#    #+#             */
-/*   Updated: 2023/08/31 16:29:19 by henrik           ###   ########lyon.fr   */
+/*   Updated: 2023/08/31 17:15:04 by hsilverb         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ void	ft_one_philo(t_data *data)
 {
 	printf("0\t1 has taken a fork\n");
 	usleep(data->time_to_die);
-	printf("%lu\t1 died\n", data->time_to_die);
+	printf("%d\t1 died\n", data->time_to_die);
 	exit (EXIT_SUCCESS);
 }
 

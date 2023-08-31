@@ -6,7 +6,7 @@
 /*   By: hsilverb <hsilverb@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/14 16:52:42 by henrik            #+#    #+#             */
-/*   Updated: 2023/08/31 17:12:10 by hsilverb         ###   ########lyon.fr   */
+/*   Updated: 2023/08/31 17:59:26 by hsilverb         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,9 @@ void	ft_sleep(t_philo *philo)
 	else
 	{
 		usleep(philo->time_to_die - philo->time_to_eat);
+		// pthread_mutex_lock(message);
 		*(philo->death) += 1;
+		// pthread_mutex_unlock(message);
 		ft_print_message(philo, "died");
 	}
 	if (philo->time_to_eat > philo->time_to_sleep)
@@ -71,7 +73,7 @@ void	ft_eat(t_philo *philo)
 	else
 	{
 		usleep(philo->time_to_die - philo->time_to_eat);
-		ft_print_message(philo, "died while eating");
+		ft_print_message(philo, "died");
 		*(philo->death) += 1;
 	}
 	philo->nb_eat += 1;
