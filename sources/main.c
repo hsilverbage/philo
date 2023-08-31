@@ -6,7 +6,7 @@
 /*   By: henrik <henrik@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/14 16:52:42 by henrik            #+#    #+#             */
-/*   Updated: 2023/08/31 16:30:20 by henrik           ###   ########lyon.fr   */
+/*   Updated: 2023/08/31 17:08:39 by henrik           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,8 +127,6 @@ void	ft_philo(t_data *data)
 	i = 0;
 	while (i < data->nb_philo)
 	{
-		if (data->death > 0)
-			break;
 		ft_init_philo(data, i);
 		ft_init_forks(data, i);
 		pthread_create(&(data->th[i]), NULL, routine, &(data->philo[i]));

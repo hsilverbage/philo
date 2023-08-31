@@ -20,7 +20,7 @@ typedef struct s_philo
 	int				index;
 	int				nb_eat;
 	int				max_eat;
-	int			*death;
+	int				*death;
 }				t_philo;
 
 typedef struct s_data
