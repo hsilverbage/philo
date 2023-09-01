@@ -12,6 +12,7 @@ typedef struct s_philo
 	pthread_mutex_t	*right_fork;
 	pthread_mutex_t	*left_fork;
 	pthread_mutex_t	*message;
+	pthread_mutex_t	*mutex_death;
 	unsigned long	start;
 	unsigned long	time_to_die;
 	unsigned long	time_to_eat;
@@ -27,6 +28,7 @@ typedef struct s_data
 {
 	pthread_mutex_t	*forks;
 	pthread_mutex_t	message;
+	pthread_mutex_t	mutex_death;
 	pthread_t		*th;
 	int				nb_philo;
 	int				time_to_die;

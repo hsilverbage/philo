@@ -6,7 +6,7 @@
 /*   By: henrik <henrik@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 19:33:05 by henrik            #+#    #+#             */
-/*   Updated: 2023/08/28 11:43:45 by henrik           ###   ########lyon.fr   */
+/*   Updated: 2023/09/01 12:26:38 by henrik           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ void	ft_destroy_thread(t_data *data)
 		i++;
 	}
 	pthread_mutex_destroy(&data->message);
+	pthread_mutex_destroy(&data->mutex_death);
 }
 
 void	ft_free_data(t_data *data)

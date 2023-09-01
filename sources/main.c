@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hsilverb <hsilverb@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: henrik <henrik@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/14 16:52:42 by henrik            #+#    #+#             */
-/*   Updated: 2023/08/31 17:59:26 by hsilverb         ###   ########lyon.fr   */
+/*   Updated: 2023/09/01 12:34:31 by henrik           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,11 @@ void	ft_print_message(t_philo *philo, char *action)
 	{
 		printf("%lu\t%d %s\n", (ft_get_timer() - philo->start), philo->index, action);
 		if (ft_strcmp(action, "died") == 0)
+		{
+			pthread_mutex_lock(philo->mutex_death);
 			philo->death += 1;
+			pthread_mutex_unlock(philo->mutex_death);
+		}
 	}
 	pthread_mutex_unlock(philo->message);
 }
@@ -48,9 +52,9 @@ void	ft_sleep(t_philo *philo)
 	else
 	{
 		usleep(philo->time_to_die - philo->time_to_eat);
-		// pthread_mutex_lock(message);
+		pthread_mutex_lock(philo->message);
 		*(philo->death) += 1;
-		// pthread_mutex_unlock(message);
+		pthread_mutex_unlock(philo->message);
 		ft_print_message(philo, "died");
 	}
 	if (philo->time_to_eat > philo->time_to_sleep)
@@ -74,9 +78,13 @@ void	ft_eat(t_philo *philo)
 	{
 		usleep(philo->time_to_die - philo->time_to_eat);
 		ft_print_message(philo, "died");
+		pthread_mutex_lock(philo->mutex_death);
 		*(philo->death) += 1;
+		pthread_mutex_unlock(philo->mutex_death);
 	}
+	pthread_mutex_lock(philo->message);
 	philo->nb_eat += 1;
+	pthread_mutex_unlock(philo->message);
 	pthread_mutex_unlock(philo->right_fork);
 	pthread_mutex_unlock(philo->left_fork);
 }
@@ -111,6 +119,7 @@ void	ft_init_philo(t_data *data, int i)
 	data->philo[i].message = &data->message;
 	data->philo[i].death = &data->death;
 	data->philo[i].start = ft_get_timer();
+	data->philo[i].mutex_death = &data->mutex_death;
 }
 void	ft_init_forks(t_data *data, int i)
 {

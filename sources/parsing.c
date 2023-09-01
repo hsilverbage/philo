@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hsilverb <hsilverb@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: henrik <henrik@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/14 17:48:09 by henrik            #+#    #+#             */
-/*   Updated: 2023/08/31 17:15:04 by hsilverb         ###   ########lyon.fr   */
+/*   Updated: 2023/09/01 12:24:58 by henrik           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,8 @@ void	ft_init_mutex(t_data *data)
 		i++;
 	}
 	if (pthread_mutex_init(&data->message, NULL) != 0)
+		ft_error("Error : mutex initialization\n");
+	if (pthread_mutex_init(&data->mutex_death, NULL) != 0)
 		ft_error("Error : mutex initialization\n");
 }
 void	ft_one_philo(t_data *data)
