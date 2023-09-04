@@ -3,10 +3,9 @@
 NAME = philo
 
 CC = cc -g3
-CFLAGS = -pthread -Wall -Wextra -Werror -fsanitize=thread
+CFLAGS = -pthread -Wall -Wextra -Werror #-fsanitize=thread
 INCLUDES = -I ./includes
 
-# COLORS
 RED=\033[0;31m
 BLUE=\033[0;34m
 GREEN=\033[0;32m
@@ -21,10 +20,7 @@ SRC =	$(SRC_DIR)/main.c \
 		$(SRC_DIR)/parsing.c \
 		$(SRC_DIR)/free.c
 
-#BONUS_SRC = $(BONUS_DIR)/main_bonus.c
-
 OBJ = $(SRC:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
-#OBJ_BONUS = $(BONUS_SRC:$(BONUS_DIR)/%.c=$(OBJ_DIR)/%.o)
 
 all: $(NAME)
 
@@ -35,14 +31,6 @@ $(NAME): $(OBJ)
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 	@mkdir -p $(OBJ_DIR)/sources
 	@$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
-
-#bonus: lib $(OBJ_BONUS)
-#@$(CC) $(CFLAGS) $(OBJ_BONUS) $(INCLUDES) $(LIBFT) -o $(NAME)
-#@echo "$(GREEN)Bonus compilation succeeded! ✔️$(END)"
-
-#$(OBJ_DIR)/%.o: $(BONUS_DIR)/%.c
-#@mkdir -p $(OBJ_DIR)/bonus
-#@$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
 #norm:
 #@norminette ./libft ./sources ./includes ./bonus | grep "Error" && echo "$(RED)Norminette KO!$(END)" || echo "$(GREEN)Norminette OK!$(END)"
