@@ -6,7 +6,7 @@
 /*   By: hsilverb <hsilverb@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 14:39:11 by hsilverb          #+#    #+#             */
-/*   Updated: 2023/09/06 14:41:19 by hsilverb         ###   ########lyon.fr   */
+/*   Updated: 2023/09/06 19:27:38 by hsilverb         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ typedef struct s_philo
 	int				nb_eat;
 	int				max_eat;
 	int				*death;
+	int				nb_philo;
 }				t_philo;
 
 typedef struct s_data

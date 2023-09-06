@@ -6,7 +6,7 @@
 /*   By: hsilverb <hsilverb@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/14 16:52:42 by henrik            #+#    #+#             */
-/*   Updated: 2023/09/06 14:39:36 by hsilverb         ###   ########lyon.fr   */
+/*   Updated: 2023/09/06 19:35:57 by hsilverb         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ void	ft_init_philo(t_data *data, int i)
 	data->philo[i].death = &data->death;
 	data->philo[i].start = ft_get_timer();
 	data->philo[i].last_meal = ft_get_timer();
+	data->philo[i].nb_philo = data->nb_philo;
 }
 
 void	ft_init_forks(t_data *data, int i)
@@ -43,8 +44,8 @@ void	ft_init_forks(t_data *data, int i)
 	}
 	else
 	{
-		data->philo[i].left_fork = &data->forks[i];
-		data->philo[i].right_fork = &data->forks[(i + 1) % data->nb_philo];
+		data->philo[i].left_fork = &data->forks[(i + 1) % data->nb_philo];
+		data->philo[i].right_fork = &data->forks[i];
 	}
 }
 
@@ -60,7 +61,7 @@ void	ft_philo(t_data *data)
 		pthread_create(&(data->th[i]), NULL, routine, &(data->philo[i]));
 		i++;
 	}
-	usleep(data->nb_philo * 5000);
+	usleep(data->nb_philo * 500);
 	ft_check_death(data);
 	ft_join_thread(data);
 	ft_destroy_thread(data);

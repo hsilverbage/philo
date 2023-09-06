@@ -6,7 +6,7 @@
 /*   By: hsilverb <hsilverb@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 19:33:05 by henrik            #+#    #+#             */
-/*   Updated: 2023/09/06 14:42:02 by hsilverb         ###   ########lyon.fr   */
+/*   Updated: 2023/09/06 19:35:12 by hsilverb         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ void	ft_destroy_thread(t_data *data)
 		i++;
 	}
 	pthread_mutex_destroy(&data->message);
+	i = 0;
 }
 
 void	ft_free_data(t_data *data)
