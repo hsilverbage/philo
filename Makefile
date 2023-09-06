@@ -33,8 +33,8 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 	@mkdir -p $(OBJ_DIR)/sources
 	@$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
-#norm:
-#@norminette ./libft ./sources ./includes ./bonus | grep "Error" && echo "$(RED)Norminette KO!$(END)" || echo "$(GREEN)Norminette OK!$(END)"
+norm:
+	@norminette ./sources ./includes | grep "Error" && echo "$(RED)Norminette KO!$(END)" || echo "$(GREEN)Norminette OK!$(END)"
 
 clean:
 	@echo "$(YELLOW)All .o files deleted 🗑 $(END)"

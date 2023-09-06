@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   philo.h                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hsilverb <hsilverb@student.42lyon.fr>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/09/06 14:39:11 by hsilverb          #+#    #+#             */
+/*   Updated: 2023/09/06 14:41:19 by hsilverb         ###   ########lyon.fr   */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef PHILO_H
 # define PHILO_H
 
@@ -50,5 +62,6 @@ void		ft_free_data(t_data *data);
 void		*routine(void *arg);
 void		ft_check_death(t_data *data);
 long long	ft_get_timer(void);
+void		ft_print_death(t_data *data, int i);
 
 #endif

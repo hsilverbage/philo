@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: henrik <henrik@student.42lyon.fr>          +#+  +:+       +#+        */
+/*   By: hsilverb <hsilverb@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/14 17:48:09 by henrik            #+#    #+#             */
-/*   Updated: 2023/09/04 16:43:30 by henrik           ###   ########lyon.fr   */
+/*   Updated: 2023/09/06 14:38:28 by hsilverb         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ void	ft_init_mutex(t_data *data)
 	if (pthread_mutex_init(&data->message, NULL) != 0)
 		ft_error("Error : mutex initialization\n");
 }
+
 void	ft_one_philo(t_data *data)
 {
 	printf("0\t1 has taken a fork\n");
@@ -87,4 +88,3 @@ void	ft_parsing_args(int argc)
 	if (argc < 5 || argc > 6)
 		ft_error("Wrong number of arguments\n");
 }
-
