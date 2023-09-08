@@ -6,7 +6,7 @@
 /*   By: hsilverb <hsilverb@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 11:09:39 by henrik            #+#    #+#             */
-/*   Updated: 2023/09/06 19:37:23 by hsilverb         ###   ########lyon.fr   */
+/*   Updated: 2023/09/08 18:26:49 by hsilverb         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,9 @@ void	ft_eat(t_philo *philo)
 	usleep(philo->time_to_eat * 1000);
 	pthread_mutex_unlock(philo->left_fork);
 	pthread_mutex_unlock(philo->right_fork);
+	pthread_mutex_lock(philo->message);
+	philo->nb_eat += 1;
+	pthread_mutex_unlock(philo->message);
 }
 
 void	*routine(void *arg)
@@ -75,12 +78,14 @@ void	*routine(void *arg)
 	t_philo	*philo;
 
 	philo = (t_philo *)arg;
+	pthread_mutex_lock(philo->message);
+	if (philo->index == 1)
+		usleep(philo->nb_philo * 50000);
+	pthread_mutex_unlock(philo->message);
+	philo->start = ft_get_timer();
 	while (*(philo->death) != 1)
 	{
 		ft_eat(philo);
-		pthread_mutex_lock(philo->message);
-		philo->nb_eat += 1;
-		pthread_mutex_unlock(philo->message);
 		if (philo->nb_eat == philo->max_eat)
 			break ;
 		ft_sleep(philo);
