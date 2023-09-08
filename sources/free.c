@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   free.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hsilverb <hsilverb@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: henrik <henrik@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 19:33:05 by henrik            #+#    #+#             */
-/*   Updated: 2023/09/08 18:46:13 by hsilverb         ###   ########lyon.fr   */
+/*   Updated: 2023/09/08 21:33:04 by henrik           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	ft_error(char *str)
 
 	i = 0;
 	while (str[i])
-		write(STDERR_FILENO, &str[i], 1);
+		write(STDERR_FILENO, &str[i++], 1);
 	exit (EXIT_FAILURE);
 }
 
