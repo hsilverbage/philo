@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hsilverb <hsilverb@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: henrik <henrik@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/14 16:52:42 by henrik            #+#    #+#             */
-/*   Updated: 2023/09/08 18:54:00 by hsilverb         ###   ########lyon.fr   */
+/*   Updated: 2023/09/08 21:30:55 by henrik           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,23 +37,19 @@ void	ft_init_philo(t_data *data, int i)
 
 void	ft_init_forks(t_data *data, int i)
 {
-	if ((data->philo[i].index % 2) == 0)
+	if (i % 2 == 0)
 	{
 		data->philo[i].left_fork = &data->forks[i];
-		if (data->philo[i].index != (i + 1))
-			data->philo[i].right_fork = &data->forks[(i + 1)];
-		else
-			data->philo[i].left_fork = &data->forks[0];
-		printf("EVEN : philo %d : lf is %d rf is %d\n", data->philo[i].index, i, i + 1);
+		data->philo[i].right_fork = &data->forks[(i + 1)];
+		if (i + 1 == data->nb_philo)
+			data->philo[i].right_fork = &data->forks[0];
 	}
 	else
 	{
 		data->philo[i].right_fork = &data->forks[i];
-		if (data->philo[i].index != i + 1)
-			data->philo[i].left_fork = &data->forks[i + 1];
-		else
+		data->philo[i].left_fork = &data->forks[i + 1];
+		if (i + 1 == data->nb_philo)
 			data->philo[i].left_fork = &data->forks[0];
-		printf("ODD : philo %d : lf is %d rf is %d\n", data->philo[i].index, i + 1, i);
 	}
 }
 
