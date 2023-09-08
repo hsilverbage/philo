@@ -6,7 +6,7 @@
 /*   By: hsilverb <hsilverb@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 11:09:39 by henrik            #+#    #+#             */
-/*   Updated: 2023/09/08 18:33:19 by hsilverb         ###   ########lyon.fr   */
+/*   Updated: 2023/09/08 18:45:21 by hsilverb         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ft_print_message(t_philo *philo, char *s)
 {
 	pthread_mutex_lock(philo->message);
 	if (*(philo->death) != 1)
-		printf("%lld\t%d %s\n", (ft_get_timer() - philo->start), philo->index, s);
+		printf("%lld\t%d %s\n", (ft_get_timer() - *(philo->start)), philo->index, s);
 	pthread_mutex_unlock(philo->message);
 }
 
@@ -75,9 +75,7 @@ void	*routine(void *arg)
 	if (philo->index == 1)
 		usleep(philo->nb_philo * 50000);
 	pthread_mutex_unlock(philo->message);
-	philo->start = ft_get_timer();
-	if (philo->index % 2 == 0)
-		usleep(philo->time_to_eat / 2);
+	*(philo->start) = ft_get_timer();
 	while (*(philo->death) != 1)
 	{
 		ft_eat(philo);
