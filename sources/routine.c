@@ -6,7 +6,7 @@
 /*   By: hsilverb <hsilverb@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 11:09:39 by henrik            #+#    #+#             */
-/*   Updated: 2023/09/08 18:26:49 by hsilverb         ###   ########lyon.fr   */
+/*   Updated: 2023/09/08 18:33:19 by hsilverb         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,8 @@
 void	ft_print_message(t_philo *philo, char *s)
 {
 	pthread_mutex_lock(philo->message);
-	if (*(philo->death) == 1)
-	{
-		pthread_mutex_unlock(philo->message);
-		return ;
-	}
-	printf("%lld\t%d %s\n", (ft_get_timer() - philo->start), philo->index, s);
+	if (*(philo->death) != 1)
+		printf("%lld\t%d %s\n", (ft_get_timer() - philo->start), philo->index, s);
 	pthread_mutex_unlock(philo->message);
 }
 
@@ -58,9 +54,9 @@ void	ft_sleep(t_philo *philo)
 void	ft_eat(t_philo *philo)
 {
 	pthread_mutex_lock(philo->left_fork);
-	ft_print_message(philo, "has taken a fork");
+	ft_print_message(philo, "has taken LEFT a fork");
 	pthread_mutex_lock(philo->right_fork);
-	ft_print_message(philo, "has taken a fork");
+	ft_print_message(philo, "has taken RIGHT a fork");
 	ft_print_message(philo, "is eating");
 	pthread_mutex_lock(philo->message);
 	philo->last_meal = ft_get_timer();
@@ -68,9 +64,6 @@ void	ft_eat(t_philo *philo)
 	usleep(philo->time_to_eat * 1000);
 	pthread_mutex_unlock(philo->left_fork);
 	pthread_mutex_unlock(philo->right_fork);
-	pthread_mutex_lock(philo->message);
-	philo->nb_eat += 1;
-	pthread_mutex_unlock(philo->message);
 }
 
 void	*routine(void *arg)
@@ -83,9 +76,12 @@ void	*routine(void *arg)
 		usleep(philo->nb_philo * 50000);
 	pthread_mutex_unlock(philo->message);
 	philo->start = ft_get_timer();
+	if (philo->index % 2 == 0)
+		usleep(philo->time_to_eat / 2);
 	while (*(philo->death) != 1)
 	{
 		ft_eat(philo);
+		philo->nb_eat += 1;
 		if (philo->nb_eat == philo->max_eat)
 			break ;
 		ft_sleep(philo);
