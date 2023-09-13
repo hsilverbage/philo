@@ -6,7 +6,7 @@
 /*   By: henrik <henrik@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 19:33:05 by henrik            #+#    #+#             */
-/*   Updated: 2023/09/11 22:43:43 by henrik           ###   ########lyon.fr   */
+/*   Updated: 2023/09/12 17:32:23 by henrik           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,19 @@ void	ft_print_death(t_data *data, int i)
 	int			death;
 
 	time = 0;
+	usleep(data->time_to_die * 1000);
 	pthread_mutex_lock(data->philo->message);
 	if (ft_get_timer() - data->philo[i].last_meal > data->time_to_die)
 	{
 		time = (ft_get_timer() - *(data->philo[i].start));
 		death = data->death;
-		if (data->philo[i].nb_eat != data->max_eat && death != 1)
+		if (data->philo[i].nb_eat == data->max_eat)
+		{
+			printf("test\n");
+			pthread_mutex_unlock(data->philo->message);
+			return ;
+		}
+		if (death != 1)
 			printf("%lld\t%d died\n", time, i + 1);
 		data->death = 1;
 	}

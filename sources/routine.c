@@ -6,7 +6,7 @@
 /*   By: henrik <henrik@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 11:09:39 by henrik            #+#    #+#             */
-/*   Updated: 2023/09/11 22:45:16 by henrik           ###   ########lyon.fr   */
+/*   Updated: 2023/09/13 19:00:12 by henrik           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,15 @@ void	ft_check_death(t_data *data)
 		{
 			ft_print_death(data, i);
 			i++;
+			// printf("test2\n");
+			pthread_mutex_lock(data->philo->message);
+			if (data->philo[i].nb_eat == data->max_eat)
+			{
+				pthread_mutex_unlock(data->philo->message);
+				return ;
+			}
+			pthread_mutex_unlock(data->philo->message);
 		}
-		pthread_mutex_lock(data->philo->message);
-		if (data->philo[i].nb_eat == data->max_eat)
-			return ;
-		pthread_mutex_unlock(data->philo->message);
 		i = 0;
 	}
 }
@@ -54,9 +58,9 @@ void	ft_sleep(t_philo *philo)
 void	ft_eat(t_philo *philo)
 {
 	pthread_mutex_lock(philo->left_fork);
-	ft_print_message(philo, "has taken LEFT a fork");
+	ft_print_message(philo, "has taken a fork");
 	pthread_mutex_lock(philo->right_fork);
-	ft_print_message(philo, "has taken RIGHT a fork");
+	ft_print_message(philo, "has taken a fork");
 	ft_print_message(philo, "is eating");
 	pthread_mutex_lock(philo->message);
 	philo->last_meal = ft_get_timer();

@@ -6,7 +6,7 @@
 /*   By: henrik <henrik@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/14 16:52:42 by henrik            #+#    #+#             */
-/*   Updated: 2023/09/08 21:30:55 by henrik           ###   ########lyon.fr   */
+/*   Updated: 2023/09/13 18:58:45 by henrik           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,6 @@ void	ft_philo(t_data *data)
 		pthread_create(&(data->th[i]), NULL, routine, &(data->philo[i]));
 		i++;
 	}
-	usleep(data->nb_philo * data->time_to_eat);
 	ft_check_death(data);
 	ft_join_thread(data);
 	ft_destroy_thread(data);
