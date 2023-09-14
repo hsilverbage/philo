@@ -6,7 +6,7 @@
 /*   By: henrik <henrik@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 11:09:39 by henrik            #+#    #+#             */
-/*   Updated: 2023/09/14 18:56:08 by henrik           ###   ########lyon.fr   */
+/*   Updated: 2023/09/14 19:05:59 by henrik           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,8 +83,15 @@ void	*routine(void *arg)
 	pthread_mutex_unlock(philo->message);
 	if (philo->index % 2 == 0)
 		ft_usleep(philo->time_to_eat);
-	while (*(philo->death) != 1)
+	while (1)
 	{
+		pthread_mutex_lock(philo->message);
+		if(*(philo->death))
+		{
+			pthread_mutex_unlock(philo->message);
+			break;
+		}
+		pthread_mutex_unlock(philo->message);
 		ft_eat(philo);
 		pthread_mutex_lock(philo->message);
 		philo->nb_eat += 1;
