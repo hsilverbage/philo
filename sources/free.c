@@ -6,7 +6,7 @@
 /*   By: henrik <henrik@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 19:33:05 by henrik            #+#    #+#             */
-/*   Updated: 2023/09/14 16:44:08 by henrik           ###   ########lyon.fr   */
+/*   Updated: 2023/09/14 18:56:26 by henrik           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,15 @@ void	ft_print_death(t_data *data, int i)
 		pthread_mutex_unlock(&data->message);
 	}
 	pthread_mutex_unlock(&data->message);
+}
+
+void	ft_usleep(long long time)
+{
+	long long	start;
+
+	start = ft_get_timer();
+	while ((ft_get_timer() - start) < time)
+		usleep(150);
 }
 
 void	ft_error(char *str)

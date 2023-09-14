@@ -6,7 +6,7 @@
 /*   By: henrik <henrik@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 11:09:39 by henrik            #+#    #+#             */
-/*   Updated: 2023/09/14 16:33:57 by henrik           ###   ########lyon.fr   */
+/*   Updated: 2023/09/14 18:56:08 by henrik           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,11 +46,11 @@ void	ft_check_death(t_data *data)
 void	ft_sleep(t_philo *philo)
 {
 	ft_print_message(philo, "is sleeping");
-	usleep(philo->time_to_sleep * 1000);
+	ft_usleep(philo->time_to_sleep);
 	if (philo->time_to_eat > philo->time_to_sleep)
 	{
 		ft_print_message(philo, "is thinking");
-		usleep((philo->time_to_eat - philo->time_to_sleep) * 1000);
+		ft_usleep(philo->time_to_eat - philo->time_to_sleep);
 	}
 }
 
@@ -64,7 +64,7 @@ void	ft_eat(t_philo *philo)
 	pthread_mutex_lock(philo->message);
 	philo->last_meal = ft_get_timer();
 	pthread_mutex_unlock(philo->message);
-	usleep(philo->time_to_eat * 1000);
+	ft_usleep(philo->time_to_eat);
 	pthread_mutex_unlock(philo->left_fork);
 	pthread_mutex_unlock(philo->right_fork);
 }
@@ -77,12 +77,12 @@ void	*routine(void *arg)
 	pthread_mutex_lock(philo->message);
 	if (philo->index == 1)
 	{
-		usleep(philo->nb_philo * 50000);
+		ft_usleep(philo->nb_philo);
 		*(philo->start) = ft_get_timer();
 	}
 	pthread_mutex_unlock(philo->message);
 	if (philo->index % 2 == 0)
-		usleep(philo->time_to_eat * 500);
+		ft_usleep(philo->time_to_eat);
 	while (*(philo->death) != 1)
 	{
 		ft_eat(philo);
