@@ -6,7 +6,7 @@
 /*   By: henrik <henrik@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/14 16:52:42 by henrik            #+#    #+#             */
-/*   Updated: 2023/09/13 18:58:45 by henrik           ###   ########lyon.fr   */
+/*   Updated: 2023/09/14 16:27:25 by henrik           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	ft_init_philo(t_data *data, int i)
 	data->philo[i].message = &data->message;
 	data->philo[i].death = &data->death;
 	data->philo[i].start = &data->start;
-	data->philo[i].last_meal = ft_get_timer();
+	data->philo[i].last_meal = 0;
 	data->philo[i].nb_philo = data->nb_philo;
 }
 

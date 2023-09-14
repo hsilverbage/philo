@@ -6,7 +6,7 @@
 /*   By: henrik <henrik@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 11:09:39 by henrik            #+#    #+#             */
-/*   Updated: 2023/09/13 19:00:12 by henrik           ###   ########lyon.fr   */
+/*   Updated: 2023/09/14 16:33:57 by henrik           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ void	ft_check_death(t_data *data)
 		{
 			ft_print_death(data, i);
 			i++;
-			// printf("test2\n");
 			pthread_mutex_lock(data->philo->message);
 			if (data->philo[i].nb_eat == data->max_eat)
 			{
@@ -77,9 +76,13 @@ void	*routine(void *arg)
 	philo = (t_philo *)arg;
 	pthread_mutex_lock(philo->message);
 	if (philo->index == 1)
+	{
 		usleep(philo->nb_philo * 50000);
 		*(philo->start) = ft_get_timer();
+	}
 	pthread_mutex_unlock(philo->message);
+	if (philo->index % 2 == 0)
+		usleep(philo->time_to_eat * 500);
 	while (*(philo->death) != 1)
 	{
 		ft_eat(philo);

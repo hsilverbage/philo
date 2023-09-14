@@ -1,0 +1,215 @@
+1       19 has taken a fork
+1       19 is eating
+1       25 has taken a fork
+1       25 has taken a fork
+1       25 is eating
+1       31 has taken a fork
+1       31 has taken a fork
+1       35 has taken a fork
+1       35 has taken a fork
+1       35 is eating
+1       39 has taken a fork
+1       39 has taken a fork
+1       39 is eating
+1       43 has taken a fork
+1       43 has taken a fork
+1       43 is eating
+1       51 has taken a fork
+1       51 has taken a fork
+1       51 is eating
+1       57 has taken a fork
+1       57 has taken a fork
+1       57 is eating
+1       63 has taken a fork
+1       63 has taken a fork
+1       63 is eating
+1       69 has taken a fork
+1       71 has taken a fork
+1       71 has taken a fork
+1       71 is eating
+1       77 has taken a fork
+1       77 has taken a fork
+1       77 is eating
+1       83 has taken a fork
+1       83 has taken a fork
+1       83 is eating
+1       89 has taken a fork
+1       89 has taken a fork
+1       89 is eating
+1       95 has taken a fork
+1       95 has taken a fork
+1       97 has taken a fork
+1       97 has taken a fork
+1       97 is eating
+1       103 has taken a fork
+1       103 has taken a fork
+1       103 is eating
+1       109 has taken a fork
+1       109 has taken a fork
+1       109 is eating
+1       117 has taken a fork
+1       117 has taken a fork
+2       117 is eating
+2       125 has taken a fork
+2       125 has taken a fork
+2       125 is eating
+2       129 has taken a fork
+2       129 has taken a fork
+2       131 has taken a fork
+2       129 is eating
+2       131 has taken a fork
+2       131 is eating
+2       133 has taken a fork
+2       133 has taken a fork
+2       133 is eating
+2       137 has taken a fork
+2       137 has taken a fork
+2       137 is eating
+2       143 has taken a fork
+2       143 has taken a fork
+2       143 is eating
+2       147 has taken a fork
+2       147 has taken a fork
+2       147 is eating
+2       3 has taken a fork
+2       3 has taken a fork
+2       3 is eating
+2       23 has taken a fork
+2       23 has taken a fork
+2       23 is eating
+2       27 has taken a fork
+2       27 has taken a fork
+2       27 is eating
+2       37 has taken a fork
+2       37 has taken a fork
+2       37 is eating
+2       45 has taken a fork
+2       45 has taken a fork
+2       45 is eating
+2       59 has taken a fork
+2       59 has taken a fork
+2       59 is eating
+2       67 has taken a fork
+2       67 has taken a fork
+2       67 is eating
+2       79 has taken a fork
+2       79 has taken a fork
+2       79 is eating
+2       91 has taken a fork
+2       91 has taken a fork
+2       91 is eating
+2       95 is eating
+2       99 has taken a fork
+2       99 has taken a fork
+2       99 is eating
+2       107 has taken a fork
+2       107 has taken a fork
+2       107 is eating
+2       115 has taken a fork
+2       115 has taken a fork
+2       115 is eating
+2       127 has taken a fork
+2       127 has taken a fork
+2       127 is eating
+2       141 has taken a fork
+2       141 has taken a fork
+2       141 is eating
+2       9 has taken a fork
+2       7 has taken a fork
+2       7 has taken a fork
+2       7 is eating
+2       13 has taken a fork
+2       13 has taken a fork
+2       13 is eating
+2       33 has taken a fork
+2       31 is eating
+2       41 has taken a fork
+3       41 has taken a fork
+3       41 is eating
+3       55 has taken a fork
+3       55 has taken a fork
+3       55 is eating
+3       69 has taken a fork
+3       69 is eating
+3       73 has taken a fork
+3       73 has taken a fork
+3       73 is eating
+3       85 has taken a fork
+3       85 has taken a fork
+3       85 is eating
+3       101 has taken a fork
+3       101 has taken a fork
+3       101 is eating
+3       119 has taken a fork
+3       119 has taken a fork
+3       119 is eating
+3       135 has taken a fork
+3       135 has taken a fork
+3       135 is eating
+3       149 has taken a fork
+3       149 has taken a fork
+3       149 is eating
+3       21 has taken a fork
+3       21 has taken a fork
+3       21 is eating
+3       47 has taken a fork
+3       47 has taken a fork
+3       47 is eating
+3       61 has taken a fork
+3       61 has taken a fork
+3       61 is eating
+3       75 has taken a fork
+3       75 has taken a fork
+3       75 is eating
+3       87 has taken a fork
+3       87 has taken a fork
+3       87 is eating
+3       105 has taken a fork
+3       105 has taken a fork
+3       113 has taken a fork
+3       113 has taken a fork
+3       113 is eating
+3       145 has taken a fork
+3       145 has taken a fork
+3       145 is eating
+3       29 has taken a fork
+3       29 has taken a fork
+3       29 is eating
+3       81 has taken a fork
+3       81 has taken a fork
+3       81 is eating
+3       105 is eating
+3       123 has taken a fork
+3       123 has taken a fork
+3       123 is eating
+3       17 has taken a fork
+3       17 has taken a fork
+3       17 is eating
+3       53 has taken a fork
+3       53 has taken a fork
+3       53 is eating
+3       111 has taken a fork
+3       121 has taken a fork
+3       121 has taken a fork
+3       121 is eating
+3       33 has taken a fork
+3       33 is eating
+3       65 has taken a fork
+3       65 has taken a fork
+3       93 has taken a fork
+3       93 has taken a fork
+3       93 is eating
+4       49 has taken a fork
+4       49 has taken a fork
+4       49 is eating
+4       111 has taken a fork
+4       15 has taken a fork
+4       15 has taken a fork
+4       15 is eating
+4       111 is eating
+4       139 has taken a fork
+4       139 has taken a fork
+4       139 is eating
+4       9 has taken a fork
+4       9 is eating
+4       65 is eating
