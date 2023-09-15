@@ -3,7 +3,7 @@
 NAME = philo
 
 CC = cc -g3
-CFLAGS = -pthread -Wall -Wextra -Werror -fsanitize=thread
+CFLAGS = -pthread -Wall -Wextra -Werror #-fsanitize=thread
 INCLUDES = -I ./includes
 
 RED=\033[0;31m
@@ -19,7 +19,8 @@ OBJ_DIR = .obj
 SRC =	$(SRC_DIR)/main.c \
 		$(SRC_DIR)/parsing.c \
 		$(SRC_DIR)/routine.c \
-		$(SRC_DIR)/free.c
+		$(SRC_DIR)/free.c	\
+		$(SRC_DIR)/death.c
 
 OBJ = $(SRC:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
 
