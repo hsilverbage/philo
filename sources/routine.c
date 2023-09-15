@@ -6,7 +6,7 @@
 /*   By: henrik <henrik@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 11:09:39 by henrik            #+#    #+#             */
-/*   Updated: 2023/09/14 19:05:59 by henrik           ###   ########lyon.fr   */
+/*   Updated: 2023/09/14 20:03:49 by henrik           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,10 +48,7 @@ void	ft_sleep(t_philo *philo)
 	ft_print_message(philo, "is sleeping");
 	ft_usleep(philo->time_to_sleep);
 	if (philo->time_to_eat > philo->time_to_sleep)
-	{
 		ft_print_message(philo, "is thinking");
-		ft_usleep(philo->time_to_eat - philo->time_to_sleep);
-	}
 }
 
 void	ft_eat(t_philo *philo)
@@ -63,6 +60,7 @@ void	ft_eat(t_philo *philo)
 	ft_print_message(philo, "is eating");
 	pthread_mutex_lock(philo->message);
 	philo->last_meal = ft_get_timer();
+	philo->nb_eat += 1;
 	pthread_mutex_unlock(philo->message);
 	ft_usleep(philo->time_to_eat);
 	pthread_mutex_unlock(philo->left_fork);
@@ -82,7 +80,7 @@ void	*routine(void *arg)
 	}
 	pthread_mutex_unlock(philo->message);
 	if (philo->index % 2 == 0)
-		ft_usleep(philo->time_to_eat);
+		ft_sleep(philo);
 	while (1)
 	{
 		pthread_mutex_lock(philo->message);
@@ -93,9 +91,6 @@ void	*routine(void *arg)
 		}
 		pthread_mutex_unlock(philo->message);
 		ft_eat(philo);
-		pthread_mutex_lock(philo->message);
-		philo->nb_eat += 1;
-		pthread_mutex_unlock(philo->message);
 		if (philo->nb_eat == philo->max_eat)
 			break ;
 		ft_sleep(philo);
