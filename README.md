@@ -103,10 +103,9 @@ Handles:
 ---
 
 ## 👤 Author
-
-**Name**: _Your Full Name_  
-**42 Login**: _your_login_  
-**Contact**: _your_email or LinkedIn_
+  
+**42 Login**: hsilverb  
+**Contact**: [LinkedIn](https://www.linkedin.com/in/henrik-silverbage/)
 
 ---
 
